@@ -1,4 +1,3 @@
 def sum_numbers(numbers=None):
-    if numbers is None:
-        return sum(range(1, 101))
-    return sum(numbers)
+    numbers_to_sum = range(1, 101) if numbers is None else numbers
+    return sum(numbers_to_sum)
