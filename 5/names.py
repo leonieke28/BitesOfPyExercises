@@ -12,7 +12,8 @@ def dedup_and_title_case_names(names):
     """Should return a list of title cased names,
     each name appears only once"""
     title_cased_names = [name.title() for name in names]
-    return list(set(title_cased_names))
+    remove_duplicates = list(dict.fromkeys(title_cased_names))
+    return remove_duplicates
 
 
 def sort_by_surname_desc(names):
@@ -28,5 +29,5 @@ def shortest_first_name(names):
     """
     names = dedup_and_title_case_names(names)
     first_name = [name.split()[0] for name in names]
-    shortest_first_name = sorted(first_name, key=len)
-    return shortest_first_name[0]
+    shortest_first_name = min(first_name, key=len)
+    return shortest_first_name
